@@ -20,9 +20,14 @@ Created using
  git clone https://github.com/ARazak200/WAD2_CW02.git
  ```
 
-2. Change into the root directory of the project 
+2. Go into the root directory of the project and create a `.env` file
 ```bash
-cd WAD2_CW02
+cd WAD2_CW02 && touch .env
+```
+3. add the following into the `.env` file
+
+```
+ACCESS_TOKEN_SECRET=<secret>
 ```
 
 4. Place the data into the databases
