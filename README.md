@@ -41,3 +41,6 @@ cd WAD2_CW02
   
 ## Justification for any changes from your development plans
 
+- Database structure
+- Overall design
+- Mobile functionality 
