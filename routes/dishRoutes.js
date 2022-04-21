@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const controller = require('../controllers/guestbookControllers.js');
+const controller = require('../controllers/dishControllers.js')
 const { login } = require('../auth/auth')
 const { verify } = require('../auth/auth')
 

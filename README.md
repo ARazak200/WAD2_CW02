@@ -28,7 +28,7 @@ cd WAD2_CW02
 4. Place the data into the databases
 
 ```bash
-npm start data 
+
 ```
 6. run the run the site
   ```bash
