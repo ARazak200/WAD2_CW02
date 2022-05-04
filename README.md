@@ -43,7 +43,15 @@ ACCESS_TOKEN_SECRET=<secret>
  ```
  http://localhost:3000/
   ```
-  
+
+## Features that have been implemented
+
+- Menu
+- staff
+- chef's pick
+- 
+
+
 ## Justification for any changes from your development plans
 
 - Database structure
