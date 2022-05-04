@@ -1,11 +1,12 @@
 <html>
 
-<head>
-    {{>header}}
-</head>
+    {{> sections/header}}
 
 <body>
+{{> sections/nav}}
+
     <h1>{{title}}</h1>
+
     <div class="text-right" style="margin-bottom: 1em;">
         {{^user}}
         <a id="login" href="/login" class="btn btn-primary">
@@ -41,3 +42,5 @@
         No entries yet.
         {{/entries}}
 </body>
+
+{{> sections/footer}}

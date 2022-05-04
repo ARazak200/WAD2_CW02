@@ -1,4 +1,4 @@
-const guestbookDAO = require("../models/guestbookModel");
+const guestbookDAO = require("../models/DishModel");
 const userDao = require("../models/userModel.js");
 
 const db = new guestbookDAO();
@@ -11,7 +11,7 @@ exports.show_login = function (req, res) {
 exports.handle_login = function (req, res) {
   // res.redirect("/new");
   res.render("newEntry", {
-    title: "Guest Book",
+    title: "Home",
     user: "user"
   });
 };
@@ -20,7 +20,7 @@ exports.landing_page = function (req, res) {
   db.getAllEntries()
     .then((list) => {
       res.render("entries", {
-        title: "Guest Book",
+        title: "Home",
         entries: list,
       });
     })
@@ -31,7 +31,7 @@ exports.landing_page = function (req, res) {
 
 exports.show_new_entries = function (req, res) {
   res.render("newEntry", {
-    title: "Guest Book",
+    title: "add new Dish",
     user: "user",
   });
 };
@@ -61,7 +61,7 @@ exports.show_user_entries = function (req, res) {
       console.log(JSON.stringify(err));
     });
 };
-
+//register remove
 exports.show_register_page = function (req, res) {
   res.render("user/register");
 };
@@ -84,12 +84,12 @@ exports.post_new_user = function (req, res) {
     res.redirect("/login");
   });
 };
-
+//change to menu page
 exports.loggedIn_landing = function (req, res) {
   db.getAllEntries()
     .then((list) => {
       res.render("entries", {
-        title: "Guest Book",
+        title: "Home",
         user: "user",
         entries: list,
       });
