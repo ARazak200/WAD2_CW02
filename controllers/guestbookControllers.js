@@ -1,4 +1,4 @@
-const guestbookDAO = require("../models/dishModel");
+const guestbookDAO = require("../models/guestbookModel");
 const userDao = require("../models/userModel.js");
 
 const db = new guestbookDAO();
@@ -61,11 +61,11 @@ exports.show_user_entries = function (req, res) {
       console.log(JSON.stringify(err));
     });
 };
-/*remove  register function
+
 exports.show_register_page = function (req, res) {
   res.render("user/register");
 };
-*/
+
 exports.post_new_user = function (req, res) {
   const user = req.body.username;
   const password = req.body.pass;
