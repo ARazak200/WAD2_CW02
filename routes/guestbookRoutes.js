@@ -15,6 +15,14 @@ router.get('/posts/:author', controller.show_user_entries);
 router.get("/loggedIn", verify, controller.loggedIn_landing);
 router.get("/logout", controller.logout);
 
+
+//Static pages
+router.get('/about', controller.about_page);
+router.get('/gallery', controller.gallery_page);
+
+//menu page
+router.get('/menu', controller.DisplayMenu);
+
 router.use(function (req, res) {
     res.status(404);
     res.type('text/plain');

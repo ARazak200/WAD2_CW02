@@ -19,7 +19,7 @@ exports.handle_login = function (req, res) {
 exports.landing_page = function (req, res) {
   db.getAllEntries()
     .then((list) => {
-      res.render("entries", {
+      res.render("landing", {
         title: "Home",
         entries: list,
       });
@@ -28,6 +28,25 @@ exports.landing_page = function (req, res) {
       console.log("promise rejected", err);
     });
 };
+
+
+exports.about_page = function (req, res) {
+  res.render("about", {
+    title: "About"
+  });
+}
+
+exports.gallery_page = function (req, res) {
+  res.render("gallery", {
+    title: "Gallery"
+  });
+}
+exports.DisplayMenu = function (req, res) {
+  res.render("menu", {
+    title: "Menu"
+  });
+}
+
 
 exports.show_new_entries = function (req, res) {
   res.render("newEntry", {
@@ -50,7 +69,7 @@ exports.show_user_entries = function (req, res) {
   let user = req.params.author;
   db.getEntriesByUser(user)
     .then((entries) => {
-      res.render("entries", {
+      res.render("landing", {
         title: "Guest Book",
         user: "user",
         entries: entries,
@@ -84,11 +103,11 @@ exports.post_new_user = function (req, res) {
     res.redirect("/login");
   });
 };
-//change to menu page
+//change to Staff page
 exports.loggedIn_landing = function (req, res) {
   db.getAllEntries()
     .then((list) => {
-      res.render("entries", {
+      res.render("landing", {
         title: "Home",
         user: "user",
         entries: list,

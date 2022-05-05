@@ -1,4 +1,5 @@
-# WAD2_CW02
+# WAD2 Coursework 02 
+### Practical Section
 
 Restaurant Web application to display menu  
 
