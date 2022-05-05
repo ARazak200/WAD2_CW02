@@ -1,15 +1,48 @@
-<html>
-
 {{> sections/header}}
 
 <body>
     {{> sections/nav}}
 
+    <div class="container overflow-hidden">
 
-    <h1>{{title}}</h1>
+        <div class="jumbotron jumbotron-fluid">
+            <h1>{{title}}</h1>
+
+            <p>“Life's too short for boring food.”</p>
+            <p>about the moto</p>
+        </div>
+
+        <div className="row gx-5">
+
+            <div class="col">
+                <div class="p-3 border bg-light">
 
 
-    {{> sections/footer}}
+
+
+                    <div class="row gx-5">
+                        <h4>FIND US HERE</h4>
+                        <br>
+                        <p>70 Cowcaddens Rd<br>
+                            Glasgow<br>
+                            G4 0BA<br>
+                            United Kingdom</p>
+                    </div>
+
+                    <div className="row gx-5">
+                        <p>Social media icons</p>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col">
+                <p>Map view</p>
+            </div>
+
+        </div>
+
+    </div>
+
 </body>
-
-</html>
+{{> sections/footer}}

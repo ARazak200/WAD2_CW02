@@ -11,7 +11,7 @@ exports.show_login = function (req, res) {
 exports.handle_login = function (req, res) {
   // res.redirect("/new");
   res.render("newEntry", {
-    title: "Home",
+    title: "new Entry",
     user: "user"
   });
 };
@@ -46,7 +46,6 @@ exports.DisplayMenu = function (req, res) {
     title: "Menu"
   });
 }
-
 
 exports.show_new_entries = function (req, res) {
   res.render("newEntry", {

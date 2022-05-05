@@ -1,17 +1,17 @@
 {
-  "name": "lab2",
+  "name": "wad-two-coursework-one",
   "version": "1.0.0",
-  "description": "",
+  "description": "Coursework to create an web application for a restaurant with a menu",
   "keywords": [
     "node.js",
     "express"
   ],
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js"
   },
-  "author": "",
+  "author": "Aadam Razak",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.0.1",

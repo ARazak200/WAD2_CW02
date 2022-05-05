@@ -1,30 +1,38 @@
 <html>
 
-    {{> sections/header}}
+{{> sections/header}}
 
 <body>
-{{> sections/nav}}
+    {{> sections/nav}}
 
-    <h1>{{title}}</h1>
+    <div class="container">
+        <div class="text-center">
+            <h1>{{title}}</h1>
+            <img src="#" alt="banner" width="200" height="150">
+        </div>
 
-    <div class="text-right" style="margin-bottom: 1em;">
-        {{^user}}
-        <a id="login" href="/login" class="btn btn-primary">
-            Sign in
-        </a>
-        
-        {{/user}}
-        {{#user}}
-        <a id="logout" href="/logout" class="btn btn-primary">
-            Sign out
-        </a>
-        {{/user}}
+        <div class="text-right" style="margin-bottom: 1em;">
+            {{^user}}
+            <a id="login" href="/login" class="btn btn-primary">
+                Sign in
+            </a>
+
+            {{/user}}
+            {{#user}}
+            <a id="logout" href="/logout" class="btn btn-primary">
+                Sign out
+            </a>
+            {{/user}}
+        </div>
+        <div class="text-right">
+            <a href="/new" class="btn btn-primary">
+                Write in the guestbook
+            </a>
+        </div>
+
     </div>
-    <div class="text-right">
-        <a href="/new" class="btn btn-primary">
-            Write in the guestbook
-        </a>
-    </div>
+
+
     {{#entries}}
     <div class="card">
         <div class="card-body">
@@ -44,3 +52,5 @@
 </body>
 
 {{> sections/footer}}
+
+</html>
