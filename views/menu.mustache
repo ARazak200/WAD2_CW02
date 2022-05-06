@@ -1,29 +1,35 @@
+<html>
 {{> sections/header}}
 
 <body>
     {{> sections/nav}}
 
-
-    <h1>{{title}}</h1>
-
-
-{{#entries}}
-    <div class="card">
-        <div class="card-body">
-            <h4 class="card-title">{{subject}}</h4>
-            <p class="card-text">
-                {{contents}}
-            </p>
-            <div class="card-footer">
-                Written by <a href="/posts/{{author}}">{{author}}</a> , on {{published}}
+    <div class="container">
+        <h1>{{title}}</h1>
+        <!--Layout for each dish-->
+        {{#dishes}}
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">{{DishName}}</h4>
+                <p class="card-text">
+                    {{DishDescription}}
+                </p>
+                <p class="card-text">
+                    {{DishIngredients}}
+                </p>
+                <div class="card-footer">
+                    {{DishPrice}}
+                </div>
             </div>
+            {{/dishes}}
+            <!--Display when no dishes are shown-->
+            {{^dishes}}
+            <p>No dishes yet.</p>
+            {{/dishes}}
         </div>
-        {{/entries}}
+    </div>
 
-        {{^entries}}
-        No entries yet.
-        {{/entries}}
-
-   
 </body>
- {{> sections/footer}}
+{{> sections/footer}}
+
+</html>

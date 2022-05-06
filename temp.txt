@@ -1,3 +1,0 @@
-<a id="login" href="/register" class="btn btn-primary">
-            Register
-        </a>

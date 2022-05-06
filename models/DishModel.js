@@ -1,5 +1,5 @@
 const nedb = require('nedb');
-class GuestBook {
+class MenuDish {
     constructor(dbFilePath) {
         if (dbFilePath) {
             this.db = new nedb({ filename: dbFilePath, autoload: true });
@@ -8,9 +8,9 @@ class GuestBook {
             this.db = new nedb();
         }
     }
-    //a function to seed the database
+    //a function to seed the database from the guestbook
     init() {
-        this.db.insert({
+        /*this.db.insert({
             subject: 'I liked the exhibition',
             contents: 'nice',
             published: '2020-02-16',
@@ -27,49 +27,51 @@ class GuestBook {
         });
         //for later debugging
         console.log('db entry Ann inserted');
+        */
     }
-
+    //a function to seed the database of dishes
     Dishes_insert() {
         //mains- burger
         this.db.insert({
             DishName: "Chicken Burger",
-            DishDescription: "",
-            DishIngredients: "",
-            DishPrice: "",
+            DishDescription: "100% chicken breast, layered with fresh lettuce, ripe tomato and mayo on a toasted brioche bun.",
+            DishIngredients: "Peri chicken, lettuce, tomato, mayo, brioche bun",
+            DishPrice: "3.50",
             chefPick: "true"
         });
         //for later debugging
-        console.log('db entry dish inserted');
+        console.log('db entry dish 1 Chicken Burger inserted');
         //mains- wraps
         this.db.insert({
-            DishName: "",
-            DishDescription: "",
-            DishIngredients: "",
-            DishPrice: "",
+            DishName: "Chicken Wrap",
+            DishDescription: "Fresh Chicken Wrapped in crunchy salad ",
+            DishIngredients: "Peri chicken, lettuce, tomato, mayo, Wrap",
+            DishPrice: "3.50",
             chefPick: "true"
         });
         //for later debugging
-        console.log('db entry dish inserted');
+        console.log('db entry dish 2 wrap inserted');
         //drink- milkshakes
         this.db.insert({
-            DishName: "",
-            DishDescription: "",
-            DishIngredients: "",
-            DishPrice: "",
+            DishName: "Strawberry Milkshake",
+            DishDescription: "creamy milkshake wit  ",
+            DishIngredients: "strawberries, whole milk, sugar, ice cream, whipped cream",
+            DishPrice: "2.00",
             chefPick: "true"
         });
         //for later debugging
-        console.log('db entry dish inserted');
+        console.log('db entry dish 3 milkshake inserted');
         //drink- irn bru
         this.db.insert({
-            DishName: "",
-            DishDescription: "",
-            DishIngredients: "",
-            DishPrice: "",
+            DishName: "Original Irn Bru",
+            DishDescription: "330ml Can served cold",
+            DishIngredients: "Carbonated Water, Sugar, Acid (Citric Acid), Flavourings, Sweeteners, Preservative, Colours.",
+            DishPrice: "0.59",
             chefPick: "true"
         });
         //for later debugging
-        console.log('db entry dish inserted');
+        console.log('db entry drink 1 Irn bru inserted');
+        /*
         //sides- fries
         this.db.insert({
             DishName: "",
@@ -79,7 +81,7 @@ class GuestBook {
             chefPick: "true"
         });
         //for later debugging
-        console.log('db entry dish inserted');
+        console.log('db entry dish 5 inserted');
         //sides- wings
         this.db.insert({
             DishName: "",
@@ -89,8 +91,31 @@ class GuestBook {
             chefPick: "true"
         });
         //for later debugging
-        console.log('db entry dish inserted');
+        console.log('db entry dish 6 inserted');
+        */
     }
+
+
+    //a function to return all entries from the database
+    getAllDishes() {
+        //return a Promise object, which can be resolved or rejected
+        return new Promise((resolve, reject) => {
+            //use the find() function of the database to get the data,
+            //error first callback function, err for error, entries for data
+            this.db.find({}, function (err, dishes) {
+                //if error occurs reject Promise
+                if (err) {
+                    reject(err);
+                    //if no error resolve the promise & return the data
+                } else {
+                    resolve(dishes);
+                    //to see what the returned data looks like
+                    console.log('function all() returns: ', dishes);
+                }
+            })
+        })
+    }
+
 
     //a function to return all entries from the database
     getAllEntries() {
@@ -160,4 +185,4 @@ class GuestBook {
     }
 
 }
-module.exports = GuestBook;
+module.exports = MenuDish;

@@ -1,9 +1,9 @@
-const guestbookDAO = require("../models/DishModel");
+const DishDAO = require("../models/DishModel");
 const userDao = require("../models/userModel.js");
 
-const db = new guestbookDAO();
-db.init();
-//db.Dishes_insert();
+const db = new DishDAO();
+//db.init();
+db.Dishes_insert();
 
 exports.show_login = function (req, res) {
   res.render("user/login");
@@ -11,26 +11,11 @@ exports.show_login = function (req, res) {
 
 exports.handle_login = function (req, res) {
   // res.redirect("/new");
-  //staff page
+  //staff page - CHANGE
   res.render("newEntry", {
     title: "new Entry",
     user: "user"
   });
-};
-
-//landing page - home page
-exports.landing_page = function (req, res) {
-
-  db.getAllEntries()
-    .then((list) => {
-      res.render("landing", {
-        title: "Home",
-        entries: list,
-      });
-    })
-    .catch((err) => {
-      console.log("promise rejected", err);
-    });
 };
 
 exports.homePage = function (req, res) {
@@ -52,9 +37,29 @@ exports.Gallery_page = function (req, res) {
   });
 }
 exports.DisplayMenu = function (req, res) {
-  res.render("menu", {
-    title: "Menu"
-  });
+  db.getAllDishes()
+    .then((DishList) => {
+      res.render("menu", {
+        title: "Menu",
+        dishes: DishList,
+      });
+    })
+    .catch((err) => {
+      console.log("promise rejected", err);
+    });
+
+  /*
+    db.getAllEntries()
+      .then((list) => {
+        res.render("menu", {
+          title: "Menu",
+          entries: list,
+        });
+      })
+      .catch((err) => {
+        console.log("promise rejected", err);
+      });
+  */
 }
 
 exports.Error = function (req, res) {
@@ -62,6 +67,21 @@ exports.Error = function (req, res) {
     title: "Error"
   });
 }
+
+//landing page - home page- NOT IN USE
+exports.landing_page = function (req, res) {
+
+  db.getAllEntries()
+    .then((list) => {
+      res.render("landing", {
+        title: "Home",
+        entries: list,
+      });
+    })
+    .catch((err) => {
+      console.log("promise rejected", err);
+    });
+};
 
 exports.show_new_entries = function (req, res) {
   res.render("newEntry", {
@@ -81,7 +101,7 @@ exports.post_new_entry = function (req, res) {
   res.redirect("/loggedIn");
 };
 
-//shows uer entries
+//shows user entries
 exports.show_user_entries = function (req, res) {
   let user = req.params.author;
   db.getEntriesByUser(user)
@@ -97,6 +117,31 @@ exports.show_user_entries = function (req, res) {
       console.log(JSON.stringify(err));
     });
 };
+
+//change to Staff page
+exports.loggedIn_landing = function (req, res) {
+  db.getAllEntries()
+    .then((list) => {
+      res.render("landing", {
+        title: "Home",
+        user: "user",
+        entries: list,
+      });
+    })
+    .catch((err) => {
+      console.log("promise rejected", err);
+    });
+};
+
+//log out function
+exports.logout = function (req, res) {
+  res.clearCookie("jwt").status(200).redirect("/");
+};
+
+
+
+
+
 /*register remove*/
 exports.show_register_page = function (req, res) {
   res.render("user/register");
@@ -119,24 +164,4 @@ exports.post_new_user = function (req, res) {
     console.log("register user", user, "password", password);
     res.redirect("/login");
   });
-};
-
-//change to Staff page
-exports.loggedIn_landing = function (req, res) {
-  db.getAllEntries()
-    .then((list) => {
-      res.render("landing", {
-        title: "Home",
-        user: "user",
-        entries: list,
-      });
-    })
-    .catch((err) => {
-      console.log("promise rejected", err);
-    });
-};
-
-//log out function
-exports.logout = function (req, res) {
-  res.clearCookie("jwt").status(200).redirect("/");
 };
