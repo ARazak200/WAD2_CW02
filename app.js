@@ -19,8 +19,11 @@ const mustache = require('mustache-express');
 app.engine('mustache', mustache());
 app.set('view engine', 'mustache');
 
-const router = require('./routes/guestbookRoutes');
+const router = require('./routes/DishRoutes');
 app.use('/', router);
+
+const DishControllers = require('./controllers/DishControllers');
+app.get('*', DishControllers.Error);
 
 app.listen(3000, () => {
   console.log('Server started on port 3000. Ctrl^c to quit.');

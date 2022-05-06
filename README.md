@@ -25,10 +25,11 @@ Created using
 2. Go into the root directory of the project and create a `.env` file
 ```bash
 cd WAD2_CW02 && touch .env
-```
-3. add the following into the `.env` file
+```  
 
-```
+3. Add the following into the `.env` file
+
+```bash
 ACCESS_TOKEN_SECRET=<secret>
 ```
 
@@ -37,9 +38,9 @@ ACCESS_TOKEN_SECRET=<secret>
 ```bash
 
 ```
-6. run the run the site
+1. run the site
   ```bash
-  npm index
+  npm app
   ```
 ## A link to a live version of your site
  ```
@@ -49,9 +50,10 @@ ACCESS_TOKEN_SECRET=<secret>
 ## Features that have been implemented
 
 - Menu
+- about
+- gallery
 - staff
 - chef's pick
-- 
 
 
 ## Justification for any changes from your development plans
@@ -59,3 +61,4 @@ ACCESS_TOKEN_SECRET=<secret>
 - Database structure
 - Overall design
 - Mobile functionality 
+- features not functional

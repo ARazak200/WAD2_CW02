@@ -16,6 +16,7 @@ exports.handle_login = function (req, res) {
   });
 };
 
+//landing page - home page
 exports.landing_page = function (req, res) {
   db.getAllEntries()
     .then((list) => {
@@ -29,14 +30,14 @@ exports.landing_page = function (req, res) {
     });
 };
 
-
-exports.about_page = function (req, res) {
+//Showing static pages to user
+exports.About_page = function (req, res) {
   res.render("about", {
     title: "About"
   });
 }
 
-exports.gallery_page = function (req, res) {
+exports.Gallery_page = function (req, res) {
   res.render("gallery", {
     title: "Gallery"
   });
@@ -47,6 +48,12 @@ exports.DisplayMenu = function (req, res) {
   });
 }
 
+exports.Error = function (req, res) {
+  res.render("sections/err", {
+    title: "Error"
+  });
+}
+
 exports.show_new_entries = function (req, res) {
   res.render("newEntry", {
     title: "add new Dish",
@@ -54,6 +61,7 @@ exports.show_new_entries = function (req, res) {
   });
 };
 
+//post new entry - change to menu item
 exports.post_new_entry = function (req, res) {
   console.log("processing post-new_entry controller");
   if (!req.body.author) {
@@ -64,6 +72,7 @@ exports.post_new_entry = function (req, res) {
   res.redirect("/loggedIn");
 };
 
+//show suer entries
 exports.show_user_entries = function (req, res) {
   let user = req.params.author;
   db.getEntriesByUser(user)
@@ -79,7 +88,7 @@ exports.show_user_entries = function (req, res) {
       console.log(JSON.stringify(err));
     });
 };
-//register remove
+/*register remove*/
 exports.show_register_page = function (req, res) {
   res.render("user/register");
 };
@@ -102,6 +111,8 @@ exports.post_new_user = function (req, res) {
     res.redirect("/login");
   });
 };
+
+
 //change to Staff page
 exports.loggedIn_landing = function (req, res) {
   db.getAllEntries()
@@ -117,6 +128,7 @@ exports.loggedIn_landing = function (req, res) {
     });
 };
 
+//log out function
 exports.logout = function (req, res) {
   res.clearCookie("jwt").status(200).redirect("/");
 };
