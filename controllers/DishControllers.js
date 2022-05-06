@@ -112,7 +112,6 @@ exports.post_new_user = function (req, res) {
   });
 };
 
-
 //change to Staff page
 exports.loggedIn_landing = function (req, res) {
   db.getAllEntries()
