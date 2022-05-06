@@ -7,7 +7,8 @@ const { render, get } = require('express/lib/response');
 
 router.get('/login', controller.show_login);
 router.post('/login', login, controller.handle_login);
-router.get("/", controller.landing_page);
+//router.get("/", controller.landing_page);
+router.get("/", controller.homePage);
 router.get('/new', verify, controller.show_new_entries);
 router.post('/new', verify, controller.post_new_entry);
 router.get('/posts/:author', controller.show_user_entries);
@@ -23,7 +24,6 @@ router.get('/gallery', controller.Gallery_page);
 
 //menu page
 router.get('/menu', controller.DisplayMenu);
-
 
 //re direct to error page
 router.use(function (req, res) {

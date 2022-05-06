@@ -3,6 +3,7 @@ const userDao = require("../models/userModel.js");
 
 const db = new guestbookDAO();
 db.init();
+//db.Dishes_insert();
 
 exports.show_login = function (req, res) {
   res.render("user/login");
@@ -10,6 +11,7 @@ exports.show_login = function (req, res) {
 
 exports.handle_login = function (req, res) {
   // res.redirect("/new");
+  //staff page
   res.render("newEntry", {
     title: "new Entry",
     user: "user"
@@ -18,6 +20,7 @@ exports.handle_login = function (req, res) {
 
 //landing page - home page
 exports.landing_page = function (req, res) {
+
   db.getAllEntries()
     .then((list) => {
       res.render("landing", {
@@ -29,6 +32,12 @@ exports.landing_page = function (req, res) {
       console.log("promise rejected", err);
     });
 };
+
+exports.homePage = function (req, res) {
+  res.render("landing", {
+    title: "Home Page"
+  });
+}
 
 //Showing static pages to user
 exports.About_page = function (req, res) {
@@ -72,7 +81,7 @@ exports.post_new_entry = function (req, res) {
   res.redirect("/loggedIn");
 };
 
-//show suer entries
+//shows uer entries
 exports.show_user_entries = function (req, res) {
   let user = req.params.author;
   db.getEntriesByUser(user)

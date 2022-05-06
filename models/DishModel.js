@@ -28,6 +28,70 @@ class GuestBook {
         //for later debugging
         console.log('db entry Ann inserted');
     }
+
+    Dishes_insert() {
+        //mains- burger
+        this.db.insert({
+            DishName: "Chicken Burger",
+            DishDescription: "",
+            DishIngredients: "",
+            DishPrice: "",
+            chefPick: "true"
+        });
+        //for later debugging
+        console.log('db entry dish inserted');
+        //mains- wraps
+        this.db.insert({
+            DishName: "",
+            DishDescription: "",
+            DishIngredients: "",
+            DishPrice: "",
+            chefPick: "true"
+        });
+        //for later debugging
+        console.log('db entry dish inserted');
+        //drink- milkshakes
+        this.db.insert({
+            DishName: "",
+            DishDescription: "",
+            DishIngredients: "",
+            DishPrice: "",
+            chefPick: "true"
+        });
+        //for later debugging
+        console.log('db entry dish inserted');
+        //drink- irn bru
+        this.db.insert({
+            DishName: "",
+            DishDescription: "",
+            DishIngredients: "",
+            DishPrice: "",
+            chefPick: "true"
+        });
+        //for later debugging
+        console.log('db entry dish inserted');
+        //sides- fries
+        this.db.insert({
+            DishName: "",
+            DishDescription: "",
+            DishIngredients: "",
+            DishPrice: "",
+            chefPick: "true"
+        });
+        //for later debugging
+        console.log('db entry dish inserted');
+        //sides- wings
+        this.db.insert({
+            DishName: "",
+            DishDescription: "",
+            DishIngredients: "",
+            DishPrice: "",
+            chefPick: "true"
+        });
+        //for later debugging
+        console.log('db entry dish inserted');
+    }
+
     //a function to return all entries from the database
     getAllEntries() {
         //return a Promise object, which can be resolved or rejected
