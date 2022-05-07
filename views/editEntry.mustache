@@ -1,14 +1,77 @@
 <html>
 {{> sections/header}}
-
 {{> sections/nav}}
 
 <body>
+
+    <!--container section-->
     <div class="container overflow-hidden">
+        <!--jumbotron section-->
         <div class="jumbotron jumbotron-fluid">
-            <h2>Edit a new Dish</h2>
+            <h2>Edit the Dish</h2>
+
+            <div class="text-right" style="margin-bottom: 1em;">
+                {{^user}}
+                <a id="login" href="/login" class="btn btn-primary"
+                    style="background-color: #A14C4C; border-color:#A14C4C;">
+                    Sign in
+                </a>
+                {{/user}}
+                {{#user}}
+
+                <a id="logout" href="/logout" class="btn btn-primary"
+                    style="background-color: #A14C4C; border-color:#A14C4C;">
+                    Sign out
+                </a>
+                {{/user}}
+
+                <a href="/staff" class="btn btn-primary" style="background-color: #A14C4C; border-color:#A14C4C;">
+                    Staff Area
+                </a>
+            </div>
+
         </div>
+        <!--jumbotron section-->
+        <!--form section-->
+        <form method="post" role="form" action="/new">
+            <div class="form-group">
+                <label for="DishName">Dish Name</label>
 
+                <select name="DishID" id="dishSelect">
+                    <option value="">--Please choose an option--</option>
+                    <option value="Dish">{{/DishID}}</option>
+                </select>
+
+                <input type="text" class="form-control" id="DishName" name="DishName" placeholder="Select the Dish Name"
+                    required>
+            </div>
+
+            <div class="form-group">
+                <label for="DishName">Dish Name</label>
+                <input type="text" class="form-control" id="DishName" name="DishName" placeholder="Enter a Dish Name"
+                    required>
+            </div>
+            <div class="form-group">
+                <label for="description">Dish Description</label>
+                <input type="text" class="form-control" id="description" name="description"
+                    placeholder="Enter a description" rows="3" required>
+            </div>
+            <div class="form-group">
+                <label for="ingredient">Dish ingredients</label>
+                <input type="text" class="form-control" id="ingredient" name="ingredient"
+                    placeholder="Enter the ingredients" rows="3" required>
+            </div>
+            <div class="form-group">
+                <label for="description">Dish Price</label>
+                <input type="number" class="form-control" id="price" name="price" placeholder="Enter the price" rows="3"
+                    required>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Edit Dish" class="btn btn-primary"
+                    style="background-color: #A14C4C; border-color:#A14C4C;">
+            </div>
+        </form>
+        <!--form section-->
+    </div>
+    <!--container section-->
 </body>
-
-</html>

@@ -1,14 +1,53 @@
 <html>
 {{> sections/header}}
-
 {{> sections/nav}}
 
 <body>
+
+    <!--container section-->
     <div class="container overflow-hidden">
+        <!--jumbotron section-->
         <div class="jumbotron jumbotron-fluid">
-            <h2>Delete a new Dish</h2>
+            <h2>Delete the Dish</h2>
+
+            <div class="text-right" style="margin-bottom: 1em;">
+                {{^user}}
+                <a id="login" href="/login" class="btn btn-primary"
+                    style="background-color: #A14C4C; border-color:#A14C4C;">
+                    Sign in
+                </a>
+                {{/user}}
+                {{#user}}
+
+                <a id="logout" href="/logout" class="btn btn-primary"
+                    style="background-color: #A14C4C; border-color:#A14C4C;">
+                    Sign out
+                </a>
+                {{/user}}
+
+                <a href="/staff" class="btn btn-primary" style="background-color: #A14C4C; border-color:#A14C4C;">
+                    Staff Area
+                </a>
+            </div>
+
         </div>
+        <!--jumbotron section-->
+        <!--form section-->
+        <form method="post" role="form" action="/new">
+            <div class="form-group">
+                <label for="DishName">Dish Name</label>
 
+                <select name="DishID" id="dishSelect">
+                    <option value="">--Please choose an option--</option>
+                    <option value="Dish">{{/DishID}}</option>
+                </select>
+
+                <div class="form-group">
+                    <input type="submit" value="Confirm entry" class="btn btn-primary"
+                        style="background-color: #A14C4C; border-color:#A14C4C;">
+                </div>
+        </form>
+        <!--form section-->
+    </div>
+    <!--container section-->
 </body>
-
-</html>

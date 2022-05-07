@@ -8,31 +8,12 @@ class MenuDish {
             this.db = new nedb();
         }
     }
-    //a function to seed the database from the guestbook
-    init() {
-        /*this.db.insert({
-            subject: 'I liked the exhibition',
-            contents: 'nice',
-            published: '2020-02-16',
-            author: 'Peter'
-        });
-        //for later debugging
-        console.log('db entry Peter inserted');
 
-        this.db.insert({
-            subject: "Didn't like it",
-            contents: 'A really terrible style!',
-            published: '2020-02-18',
-            author: 'Ann'
-        });
-        //for later debugging
-        console.log('db entry Ann inserted');
-        */
-    }
     //a function to seed the database of dishes
     Dishes_insert() {
         //mains- burger
         this.db.insert({
+            DishID: "Main01",
             DishName: "Chicken Burger",
             DishDescription: "100% chicken breast, layered with fresh lettuce, ripe tomato and mayo on a toasted brioche bun.",
             DishIngredients: "Peri chicken, lettuce, tomato, mayo, brioche bun",
@@ -43,6 +24,7 @@ class MenuDish {
         console.log('db entry dish 1 Chicken Burger inserted');
         //mains- wraps
         this.db.insert({
+            DishID: "Main02",
             DishName: "Chicken Wrap",
             DishDescription: "Fresh Chicken Wrapped in crunchy salad ",
             DishIngredients: "Peri chicken, lettuce, tomato, mayo, Wrap",
@@ -53,6 +35,7 @@ class MenuDish {
         console.log('db entry dish 2 wrap inserted');
         //drink- milkshakes
         this.db.insert({
+            DishID: "Drink01",
             DishName: "Strawberry Milkshake",
             DishDescription: "creamy milkshake wit  ",
             DishIngredients: "strawberries, whole milk, sugar, ice cream, whipped cream",
@@ -63,6 +46,7 @@ class MenuDish {
         console.log('db entry dish 3 milkshake inserted');
         //drink- irn bru
         this.db.insert({
+            DishID: "Drink02",
             DishName: "Original Irn Bru",
             DishDescription: "330ml Can served cold",
             DishIngredients: "Carbonated Water, Sugar, Acid (Citric Acid), Flavourings, Sweeteners, Preservative, Colours.",
@@ -74,6 +58,7 @@ class MenuDish {
         /*
         //sides- fries
         this.db.insert({
+            DishID: "Side01"
             DishName: "",
             DishDescription: "",
             DishIngredients: "",
@@ -81,17 +66,18 @@ class MenuDish {
             chefPick: "true"
         });
         //for later debugging
-        console.log('db entry dish 5 inserted');
+        console.log('db entry side 1 fries inserted');
         //sides- wings
         this.db.insert({
-            DishName: "",
+            DishID: "Side02",
+            DishName: "chicken Wings",
             DishDescription: "",
             DishIngredients: "",
             DishPrice: "",
             chefPick: "true"
         });
         //for later debugging
-        console.log('db entry dish 6 inserted');
+        console.log('db entry side 1 wing inserted');
         */
     }
 
@@ -182,6 +168,28 @@ class MenuDish {
                 }
             })
         })
+    }
+
+    //a function to seed the database from the guestbook
+    init() {
+        /*this.db.insert({
+            subject: 'I liked the exhibition',
+            contents: 'nice',
+            published: '2020-02-16',
+            author: 'Peter'
+        });
+        //for later debugging
+        console.log('db entry Peter inserted');
+
+        this.db.insert({
+            subject: "Didn't like it",
+            contents: 'A really terrible style!',
+            published: '2020-02-18',
+            author: 'Ann'
+        });
+        //for later debugging
+        console.log('db entry Ann inserted');
+        */
     }
 
 }
