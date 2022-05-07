@@ -12,8 +12,8 @@ exports.show_login = function (req, res) {
 exports.handle_login = function (req, res) {
   // res.redirect("/new");
   //staff page - CHANGE
-  res.render("newEntry", {
-    title: "new Entry",
+  res.render("staff", {
+    title: "Staff Area",
     user: "user"
   });
 };
@@ -47,19 +47,6 @@ exports.DisplayMenu = function (req, res) {
     .catch((err) => {
       console.log("promise rejected", err);
     });
-
-  /*
-    db.getAllEntries()
-      .then((list) => {
-        res.render("menu", {
-          title: "Menu",
-          entries: list,
-        });
-      })
-      .catch((err) => {
-        console.log("promise rejected", err);
-      });
-  */
 }
 
 exports.Error = function (req, res) {
@@ -68,20 +55,7 @@ exports.Error = function (req, res) {
   });
 }
 
-//landing page - home page- NOT IN USE
-exports.landing_page = function (req, res) {
 
-  db.getAllEntries()
-    .then((list) => {
-      res.render("landing", {
-        title: "Home",
-        entries: list,
-      });
-    })
-    .catch((err) => {
-      console.log("promise rejected", err);
-    });
-};
 
 exports.show_new_entries = function (req, res) {
   res.render("newEntry", {
@@ -120,17 +94,24 @@ exports.show_user_entries = function (req, res) {
 
 //change to Staff page
 exports.loggedIn_landing = function (req, res) {
-  db.getAllEntries()
-    .then((list) => {
-      res.render("landing", {
-        title: "Home",
-        user: "user",
-        entries: list,
+
+  res.render("staff", {
+    title: "Staff Area"
+  });
+  /*
+    db.getAllEntries()
+      .then((list) => {
+        res.render("landing", {
+          title: "Home",
+          user: "user",
+          entries: list,
+        });
+      })
+      .catch((err) => {
+        console.log("promise rejected", err);
       });
-    })
-    .catch((err) => {
-      console.log("promise rejected", err);
-    });
+  */
+
 };
 
 //log out function
@@ -139,7 +120,20 @@ exports.logout = function (req, res) {
 };
 
 
+//landing page - home page- NOT IN USE
+exports.landing_page = function (req, res) {
 
+  db.getAllEntries()
+    .then((list) => {
+      res.render("landing", {
+        title: "Home",
+        entries: list,
+      });
+    })
+    .catch((err) => {
+      console.log("promise rejected", err);
+    });
+};
 
 
 /*register remove*/

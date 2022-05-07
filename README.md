@@ -73,7 +73,7 @@ npm app
  cd WAD2_CW02\public\elements
 ```
 ### Global 
- - Favicon - GCU-logo.png (Red edition)[Click Here](https://www.gcu.ac.uk/)
+ - Favicon - GCU-logo.png (changed background to red)[Click Here](https://www.gcu.ac.uk/)
  - NoPage.png[Click Here](https://www.flaticon.com/free-icon/page-not-found_2748791?term=page%20not%20found&page=1&position=12&page=1&position=12&related_id=2748791&origin=tag)
 
 ### Home

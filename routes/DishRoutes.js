@@ -15,8 +15,8 @@ router.post('/new', verify, controller.post_new_entry);
 
 router.get('/posts/:author', controller.show_user_entries);
 
-router.get('/register', controller.show_register_page);
-router.post('/register', controller.post_new_user);
+//router.get('/register', controller.show_register_page);
+//router.post('/register', controller.post_new_user);
 
 router.get("/loggedIn", verify, controller.loggedIn_landing);
 router.get("/logout", controller.logout);
