@@ -9,15 +9,6 @@ exports.show_login = function (req, res) {
   res.render("user/login");
 };
 
-exports.handle_login = function (req, res) {
-  // res.redirect("/new");
-  //staff page - CHANGE
-  res.render("staff", {
-    title: "Staff Area",
-    user: "user"
-  });
-};
-
 exports.homePage = function (req, res) {
   res.render("landing", {
     title: "Home Page"
@@ -55,7 +46,27 @@ exports.Error = function (req, res) {
   });
 }
 
+//staff page 
+exports.handle_login = function (req, res) {
+  res.render("staff", {
+    title: "Staff Area",
+    user: "user"
+  });
+};
 
+exports.show_delete_dish = function (req, res) {
+  res.render("delete", {
+    title: "delete",
+    user: "user"
+  });
+}
+
+exports.show_edit_dish = function (req, res) {
+  res.render("edit", {
+    title: "edit"
+    //user: "user"
+  });
+}
 
 exports.show_new_entries = function (req, res) {
   res.render("newEntry", {
@@ -67,11 +78,12 @@ exports.show_new_entries = function (req, res) {
 //post new entry - change to menu item
 exports.post_new_entry = function (req, res) {
   console.log("processing post-new_entry controller");
-  if (!req.body.author) {
-    response.status(400).send("Entries must have an author.");
+  if (!req.body.DishName) {
+    response.status(400).send("Entries must have an Dish Name.");
     return;
   }
-  db.addEntry(req.body.author, req.body.subject, req.body.contents);
+  db.addEntry(req.body.DishName, req.body.DishDescription, req.body.DishIngredients, req.body.DishPrice);
+  //db.addEntry(req.body.author, req.body.subject, req.body.contents);
   res.redirect("/loggedIn");
 };
 
@@ -92,26 +104,18 @@ exports.show_user_entries = function (req, res) {
     });
 };
 
-//change to Staff page
+
 exports.loggedIn_landing = function (req, res) {
-
-  res.render("staff", {
-    title: "Staff Area"
-  });
-  /*
-    db.getAllEntries()
-      .then((list) => {
-        res.render("landing", {
-          title: "Home",
-          user: "user",
-          entries: list,
-        });
-      })
-      .catch((err) => {
-        console.log("promise rejected", err);
+  db.getAllDishes()
+    .then((dishes) => {
+      res.render("menu", {
+        title: "Menu",
+        dishes: dishes,
       });
-  */
-
+    })
+    .catch((err) => {
+      console.log("promise rejected", err);
+    });
 };
 
 //log out function
@@ -119,10 +123,8 @@ exports.logout = function (req, res) {
   res.clearCookie("jwt").status(200).redirect("/");
 };
 
-
 //landing page - home page- NOT IN USE
 exports.landing_page = function (req, res) {
-
   db.getAllEntries()
     .then((list) => {
       res.render("landing", {
@@ -134,7 +136,6 @@ exports.landing_page = function (req, res) {
       console.log("promise rejected", err);
     });
 };
-
 
 /*register remove*/
 exports.show_register_page = function (req, res) {

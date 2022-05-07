@@ -1,14 +1,18 @@
 <html>
 {{> sections/header}}
+{{> sections/nav}}
 
 <body>
-    {{> sections/nav}}
 
-    <div class="container">
-        <h1>{{title}}</h1>
+    <div class="container overflow-hidden ">
+        <div class=" jumbotron jumbotron-fluid text-center text-white" style="background-color: #A14C4C; opacity: 1;">
+
+            <h1>{{title}}</h1>
+        </div>
+
         <!--Layout for each dish-->
         {{#dishes}}
-        <div class="card">
+        <div class=" card">
             <div class="card-body">
                 <h4 class="card-title">{{DishName}}</h4>
                 <p class="card-text">
