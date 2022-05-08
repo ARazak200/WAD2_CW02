@@ -10,6 +10,11 @@ Created using
 <a href="https://getbootstrap.com/" target="_blank"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/bootstrap/bootstrap-plain-wordmark.svg" alt="Bootstrap" width="40" height="40"></a> 
 <a href="#" target="_blank"><img src="public\elements\mustache-logo.png" alt="mustache" width="40" height="40"></a> 
 
+## Included in repo
+- Test report
+- Video Demo
+- Caley Street Web Application
+
 ## Frameworks used
 - Express - Node.js web application framework
 - Mustache - Web template system
@@ -41,30 +46,36 @@ npm app
  http://localhost:3000/
   ```
 
-## Features that have been implemented
+## Features that have been Implemented
 
 - Landing
   - Home
-  - Reviews
-  - Banner
-- Menu
+    - Banner
+    - Reviews for Caley Street
+- Menu Page
+  - Showing all dish items
+  - including new dishes
 - About
-  - Address with btn
-  - map view embedded 
-  - social media icon as links
+  - Address with button
+  - Map view embedded from Google Maps 
+  - Social media icon as links
 - Gallery
   - 9 pictures with figures
-- staff
+  - In a 3X3 grid layout
+- Staff
+- CRUD functions only for add
+- Pages created in views for all CRUD operations
 
 ## Justification for any changes from your development plans
 
 - Database structure
 - Overall design
-- Mobile functionality 
+- Mobile functionality
+  - Due to time this function is limited 
 - features not functional
   - Chef's pick
   - Edit functionality
-  - delete functionality
+  - Delete functionality
 
 ## Sources 
 ### listed below are the open-sources elements used for the web application
