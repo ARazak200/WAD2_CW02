@@ -17,7 +17,7 @@ router.get('/staff', verify, controller.handle_login);
 router.get('/new', verify, controller.show_new_entries);
 router.post('/new', verify, controller.post_new_entry);
 
-router.get('/delete', verify, controller.show_delete_dish);
+router.get('/delete', controller.show_delete_dish);
 //router.post('/delete_post', controller.post_delete_dish);
 router.get('/edit', verify, controller.show_edit_dish);
 //router.post('/edit_post', controller.post_edit_dish);

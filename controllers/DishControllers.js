@@ -55,7 +55,7 @@ exports.handle_login = function (req, res) {
 };
 
 exports.show_delete_dish = function (req, res) {
-  res.render("delete", {
+  res.render("deleteEntry", {
     title: "delete",
     user: "user"
   });

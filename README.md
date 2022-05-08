@@ -55,8 +55,6 @@ npm app
 - Gallery
   - 9 pictures with figures
 - staff
-- chef's pick
-
 
 ## Justification for any changes from your development plans
 
@@ -64,6 +62,9 @@ npm app
 - Overall design
 - Mobile functionality 
 - features not functional
+  - Chef's pick
+  - Edit functionality
+  - delete functionality
 
 ## Sources 
 ### listed below are the open-sources elements used for the web application
