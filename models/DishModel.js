@@ -157,24 +157,6 @@ class MenuDish {
             }
         })
     }
-    /*
-        addEntry(author, subject, contents) {
-            var entry = {
-                author: author,
-                subject: subject,
-                contents: contents,
-                published: new Date().toISOString().split('T')[0]
-            }
-            console.log('entry created', entry);
-            this.db.insert(entry, function (err, doc) {
-                if (err) {
-                    console.log('Error inserting document', subject);
-                } else {
-                    console.log('document inserted into the database', doc);
-                }
-            })
-        }
-        */
     getEntriesByUser(authorName) {
         return new Promise((resolve, reject) => {
             this.db.find({ 'author': authorName }, function (err, entries) {
@@ -187,28 +169,5 @@ class MenuDish {
             })
         })
     }
-    /*
-        //a function to seed the database from the guestbook
-        init() {
-            this.db.insert({
-                subject: 'I liked the exhibition',
-                contents: 'nice',
-                published: '2020-02-16',
-                author: 'Peter'
-            });
-            //for later debugging
-            console.log('db entry Peter inserted');
-    
-            this.db.insert({
-                subject: "Didn't like it",
-                contents: 'A really terrible style!',
-                published: '2020-02-18',
-                author: 'Ann'
-            });
-            //for later debugging
-            console.log('db entry Ann inserted');
-            
-        }
-    */
 }
 module.exports = MenuDish;

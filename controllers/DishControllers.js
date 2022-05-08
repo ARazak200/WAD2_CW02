@@ -55,7 +55,7 @@ exports.handle_login = function (req, res) {
 };
 
 exports.show_delete_dish = function (req, res) {
-  res.render("deleteEntry", {
+  res.render("delete", {
     title: "delete",
     user: "user"
   });
@@ -63,8 +63,8 @@ exports.show_delete_dish = function (req, res) {
 
 exports.show_edit_dish = function (req, res) {
   res.render("edit", {
-    title: "edit"
-    //user: "user"
+    title: "edit",
+    user: "user"
   });
 }
 
@@ -83,7 +83,6 @@ exports.post_new_entry = function (req, res) {
     return;
   }
   db.addEntry(req.body.DishName, req.body.DishDescription, req.body.DishIngredients, req.body.DishPrice);
-  //db.addEntry(req.body.author, req.body.subject, req.body.contents);
   res.redirect("/loggedIn");
 };
 
